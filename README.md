@@ -8,7 +8,7 @@ permet de gérer les livres, les auteurs, les emprunts et les clients.
 
 Votre mission est de tester les différentes entités, services et contrôleurs de cette application.
 
-### Exercice 1 : Test unitaire d'une Entité Simple (20 points)
+### Exercice 1 : Test unitaire d'une Entité Simple
 #### Objectif :
 Créer et tester une entité Book qui représente un livre dans la bibliothèque.
 
@@ -21,7 +21,7 @@ Créer et tester une entité Book qui représente un livre dans la bibliothèque
   - publishedAt (DateTime) : Date de publication.
 - [ ] Écrivez un test unitaire pour vérifier le bon fonctionnement des getters et setters de l'entité.
 
-### Exercice 2 : Test unitaire des validations d'une Entité (30 points)
+### Exercice 2 : Test unitaire des validations d'une Entité 
 
 #### Objectif :
 Créer et tester les validations de l'entité Book. Un livre doit avoir un titre, un numéro ISBN et une date de publication.
@@ -38,7 +38,7 @@ Créer et tester les validations de l'entité Book. Un livre doit avoir un titre
   - Un livre sans date de publication n'est pas valide.
   - Un livre avec toutes les informations requises est valide.
 
-### Exercice 3 : Test unitaire d'une Entité avec Relation (30 points)
+### Exercice 3 : Test unitaire d'une Entité avec Relation
 #### Objectif :
 Créer et tester une relation entre un Auteur et un Livre. Un auteur peut écrire plusieurs livres.
 
@@ -52,7 +52,7 @@ Créer et tester une relation entre un Auteur et un Livre. Un auteur peut écrir
   - On peut lier des livres à un auteur.
   - La suppression d’un livre de la liste de l’auteur fonctionne.
 
-### Exercice 3 : Test d'un Service Moyennement Complexe (40 points)
+### Exercice 3 : Test d'un Service Moyennement Complexe
 #### Objectif :
 Créer et tester un service BorrowingManager qui gère les emprunts de livres par les clients.
 Ce service doit vérifier si un client peut emprunter un livre en fonction de la disponibilité et du nombre de livres qu'il a déjà empruntés.
@@ -91,7 +91,7 @@ class BorrowingManager
   - Un client peut emprunter un livre disponible.
   - Un client ne peut pas emprunter un livre déjà emprunté par un autre client.
 
-### Exercice 4 : Créer un Service via TDD (50 points)
+### Exercice 4 : Créer un Service via TDD 
 #### Objectif :
 A l'aide du fichier de tests ci-dessous, créer un service LateFeeCalculator qui sera destiné pour une implémentation future
 au calcul du montant des frais de retard lorsqu'un client rend un livre en retard.
