@@ -130,6 +130,5 @@ class LateFeeCalculatorTest extends TestCase
   - Le livre est retourné avant la date d’échéance (frais = 0 €).
   - Le livre est retourné le jour même (frais = 0 €).
   - Le livre est retourné avec 3 jours de retard (frais = 1,50 €).
-  - Le livre est retourné avec 0 jour de retard (frais = 0 €).
 
 
