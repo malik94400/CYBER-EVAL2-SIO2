@@ -22,6 +22,9 @@ class Client
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\Column]
+    private ?int $BorrowedBooksCount = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Client
     public function setEmail(string $email): static
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getBorrowedBooksCount(): ?int
+    {
+        return $this->BorrowedBooksCount;
+    }
+
+    public function setBorrowedBooksCount(int $BorrowedBooksCount): static
+    {
+        $this->BorrowedBooksCount = $BorrowedBooksCount;
 
         return $this;
     }

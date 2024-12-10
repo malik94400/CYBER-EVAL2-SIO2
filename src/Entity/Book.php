@@ -36,6 +36,9 @@ class Book
     #[ORM\JoinColumn(nullable: false)]
     private ?Author $author = null;
 
+    #[ORM\Column]
+    private ?bool $isBorrowed = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +95,18 @@ class Book
     public function setAuthor(?Author $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function isBorrowed(): ?bool
+    {
+        return $this->isBorrowed;
+    }
+
+    public function setBorrowed(bool $isBorrowed): static
+    {
+        $this->isBorrowed = $isBorrowed;
 
         return $this;
     }
