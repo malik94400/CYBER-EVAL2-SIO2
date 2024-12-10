@@ -21,6 +21,11 @@ class Book
 
     #[ORM\Column(length: 100)]
     #[Assert\NotBlank(message: 'L\'ISBN ne peut pas être vide.')]
+    #[Assert\Length(
+        min: 14,
+        max: 14,
+        exactMessage: 'Le numéro ISBN doit contenir exactement 14 caractères.'
+    )]
     private ?string $isbn = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

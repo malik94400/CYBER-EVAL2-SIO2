@@ -41,6 +41,31 @@ class BookValidationTest extends KernelTestCase
         $this->assertEquals('L\'ISBN ne peut pas être vide.', $errors[0]->getMessage());
     }
 
+    public function testInvalidBookWithInvalidIsbn(): void
+    {
+        $book = new Book();
+        $book->setTitle('Some Book Title');
+        $book->setIsbn('1234'); // ISBN invalide (trop court)
+        $book->setPublishedAt(new \DateTime());
+
+        $errors = $this->validate($book);
+
+        $this->assertCount(1, $errors);
+        $this->assertEquals('Le numéro ISBN doit contenir exactement 14 caractères.', $errors[0]->getMessage());
+
+        $book->setIsbn('123456789012345'); // ISBN invalide (trop long)
+        $errors = $this->validate($book);
+
+        $this->assertCount(1, $errors);
+        $this->assertEquals('Le numéro ISBN doit contenir exactement 14 caractères.', $errors[0]->getMessage());
+
+        $book->setIsbn('12345678901234'); // ISBN valide
+
+        $errors = $this->validate($book);
+
+        $this->assertCount(0, $errors);
+    }
+
     public function testInvalidBookWithoutPublishedAt(): void
     {
         $book = new Book();
