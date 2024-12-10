@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class LateFeeCalculatorTest extends TestCase
 {
-    public function testCalculateLateFee(): void
+    public function testCalculerFraisRetard(): void
     {
         $calculator = new LateFeeCalculator();
         $dueDate = new \DateTime('2024-01-01');
@@ -16,7 +16,7 @@ class LateFeeCalculatorTest extends TestCase
         $this->assertEquals(1.5, $calculator->calculateLateFee($dueDate, $returnDate));
     }
 
-    public function testReturnedBeforeDueDate(): void
+    public function testRetourneAvantDateEcheance(): void
     {
         $calculator = new LateFeeCalculator();
         $dueDate = new \DateTime('2024-01-01');
@@ -25,7 +25,7 @@ class LateFeeCalculatorTest extends TestCase
         $this->assertEquals(0.0, $calculator->calculateLateFee($dueDate, $returnDate));
     }
 
-    public function testReturnedOnDueDate(): void
+    public function testRetourneLeJourDeDateEcheance(): void
     {
         $calculator = new LateFeeCalculator();
         $dueDate = new \DateTime('2024-01-01');
@@ -34,7 +34,7 @@ class LateFeeCalculatorTest extends TestCase
         $this->assertEquals(0.0, $calculator->calculateLateFee($dueDate, $returnDate));
     }
 
-    public function testReturnedWithThreeDaysLate(): void
+    public function testRetourneAvecTroisJoursDeRetard(): void
     {
         $calculator = new LateFeeCalculator();
         $dueDate = new \DateTime('2024-01-01');

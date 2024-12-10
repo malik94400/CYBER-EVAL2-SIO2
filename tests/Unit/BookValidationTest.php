@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class BookValidationTest extends KernelTestCase
 {
-    public function testInvalidBookWithoutTitle(): void
+    public function testNoTitle(): void
     {
         $book = new Book();
         $book->setIsbn('978-1234567890');
@@ -24,7 +24,7 @@ class BookValidationTest extends KernelTestCase
         $this->assertEquals('Le titre ne peut pas être vide.', $errors[0]->getMessage());
     }
 
-    public function testInvalidBookWithoutIsbn(): void
+    public function testNoIsbn(): void
     {
         $book = new Book();
         $book->setTitle('Symfony for Beginners');
@@ -41,7 +41,7 @@ class BookValidationTest extends KernelTestCase
         $this->assertEquals('L\'ISBN ne peut pas être vide.', $errors[0]->getMessage());
     }
 
-    public function testInvalidBookWithInvalidIsbn(): void
+    public function testInvalideIsbn(): void
     {
         $book = new Book();
         $book->setTitle('Some Book Title');
@@ -66,7 +66,7 @@ class BookValidationTest extends KernelTestCase
         $this->assertCount(0, $errors);
     }
 
-    public function testInvalidBookWithoutPublishedAt(): void
+    public function testNoPublishedAt(): void
     {
         $book = new Book();
         $book->setTitle('Symfony for Beginners');

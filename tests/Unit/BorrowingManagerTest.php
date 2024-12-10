@@ -16,7 +16,7 @@ class BorrowingManagerTest extends TestCase
         $this->borrowingManager = new BorrowingManager();
     }
 
-    public function testClientWithFiveBorrowedBooksCannotBorrow(): void
+    public function testClientAvecCinqLivresEmpruntesNePeutPasEmprunter(): void
     {
         $client = new Client();
         $client->setBorrowedBooksCount(5);
@@ -30,7 +30,7 @@ class BorrowingManagerTest extends TestCase
         );
     }
 
-    public function testClientCanBorrowAvailableBook(): void
+    public function testClientPeutEmprunterLivreDisponible(): void
     {
         $client = new Client();
         $client->setBorrowedBooksCount(2);
@@ -44,7 +44,7 @@ class BorrowingManagerTest extends TestCase
         );
     }
 
-    public function testClientCannotBorrowAlreadyBorrowedBook(): void
+    public function testClientNePeutPasEmprunterLivreDejaEmprunte(): void
     {
         $client = new Client();
         $client->setBorrowedBooksCount(1);
