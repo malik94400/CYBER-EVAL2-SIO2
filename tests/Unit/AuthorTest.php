@@ -16,12 +16,12 @@ class AuthorTest extends TestCase
         $book1 = new Book();
         $book1->setTitle('Harry Potter and the Philosopher\'s Stone')
             ->setIsbn('978-1234567890')
-            ->setPublishedAt(new \DateTime('1997-06-26 00:00:00'));
+            ->setPublishedAt(new \DateTime('1997-06-26'));
 
         $book2 = new Book();
         $book2->setTitle('Harry Potter and the Chamber of Secrets')
             ->setIsbn('978-1234567891')
-            ->setPublishedAt(new \DateTime('1997-06-26 00:00:00'));
+            ->setPublishedAt(new \DateTime('1997-06-26'));
 
         $author->addBook($book1);
         $author->addBook($book2);
@@ -39,7 +39,7 @@ class AuthorTest extends TestCase
         $book = new Book();
         $book->setTitle('Harry Potter and the Philosopher\'s Stone')
             ->setIsbn('978-1234567890')
-            ->setPublishedAt(new \DateTime('1997-06-26 00:00:00'));
+            ->setPublishedAt(new \DateTime('1997-06-26'));
 
         $author->addBook($book);
         $this->assertCount(1, $author->getBooks());

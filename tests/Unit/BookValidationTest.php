@@ -11,16 +11,15 @@ class BookValidationTest extends KernelTestCase
     {
         $book = new Book();
         $book->setIsbn('978-1234567890');
-        $book->setPublishedAt(new \DateTime('2023-01-01')); // Assurez-vous que cette valeur est correcte
+        $book->setPublishedAt(new \DateTime('2023-01-01'));
 
         $errors = $this->validate($book);
 
-        // Vérifiez toutes les erreurs retournées
         foreach ($errors as $error) {
             echo $error->getMessage() . PHP_EOL;
         }
 
-        $this->assertCount(1, $errors); // Vérifiez que seul le titre manque
+        $this->assertCount(1, $errors);
         $this->assertEquals('Le titre ne peut pas être vide.', $errors[0]->getMessage());
     }
 
@@ -32,12 +31,11 @@ class BookValidationTest extends KernelTestCase
 
         $errors = $this->validate($book);
 
-        // Vérifiez toutes les erreurs retournées
         foreach ($errors as $error) {
             echo $error->getMessage() . PHP_EOL;
         }
 
-        $this->assertCount(1, $errors); // Vérifiez que seul l'ISBN manque
+        $this->assertCount(1, $errors);
         $this->assertEquals('L\'ISBN ne peut pas être vide.', $errors[0]->getMessage());
     }
 
@@ -45,7 +43,7 @@ class BookValidationTest extends KernelTestCase
     {
         $book = new Book();
         $book->setTitle('Some Book Title');
-        $book->setIsbn('1234'); // ISBN invalide (trop court)
+        $book->setIsbn('1234');
         $book->setPublishedAt(new \DateTime());
 
         $errors = $this->validate($book);
@@ -53,13 +51,13 @@ class BookValidationTest extends KernelTestCase
         $this->assertCount(1, $errors);
         $this->assertEquals('Le numéro ISBN doit contenir exactement 14 caractères.', $errors[0]->getMessage());
 
-        $book->setIsbn('123456789012345'); // ISBN invalide (trop long)
+        $book->setIsbn('123456789012345');
         $errors = $this->validate($book);
 
         $this->assertCount(1, $errors);
         $this->assertEquals('Le numéro ISBN doit contenir exactement 14 caractères.', $errors[0]->getMessage());
 
-        $book->setIsbn('12345678901234'); // ISBN valide
+        $book->setIsbn('12345678901234');
 
         $errors = $this->validate($book);
 
