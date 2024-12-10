@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class AuthorTest extends TestCase
 {
-    public function ajtLivreAut(): void
+    public function testAjtLivreAut(): void
     {
         $author = new Author();
         $author->setName('J.K. Rowling');
@@ -31,7 +31,7 @@ class AuthorTest extends TestCase
         $this->assertSame($author, $book2->getAuthor());
     }
 
-    public function suppLivreAuth(): void
+    public function testSuppLivreAuth(): void
     {
         $author = new Author();
         $author->setName('J.K. Rowling');
