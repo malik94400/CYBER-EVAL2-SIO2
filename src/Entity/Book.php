@@ -27,6 +27,10 @@ class Book
     #[Assert\NotBlank(message: 'La date de publication ne peut pas être vide.')]
     private ?\DateTimeInterface $publishedAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Author $author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +75,18 @@ class Book
     public function setPublishedAt(\DateTimeInterface $publishedAt): static
     {
         $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?Author
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?Author $author): static
+    {
+        $this->author = $author;
 
         return $this;
     }
